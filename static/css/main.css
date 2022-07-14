@@ -1,0 +1,162 @@
+.wrap {
+
+    width: 100%;
+
+}
+
+/*                    main                   */
+
+nav {
+    margin-top: 3rem;
+}
+
+#addPost {
+    padding: 1rem 1rem;
+    display: block;
+    width: 35rem;
+    margin: 0 auto;
+    border: 0;
+    border-radius: 5px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    font-weight: 700;
+}
+
+#addPost a {
+    color: black;
+    text-decoration: none;
+}
+
+#addPost:hover {
+    box-shadow: 1px 1px 3px black;
+}
+
+section {
+    margin-top: 30px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%;
+    height: 100%;
+    max-width: 1200px;
+}
+
+.cards {
+    display: flex;
+    width: 90%;
+    height: auto;
+    justify-content: space-around;
+    flex-flow: wrap;
+
+}
+
+.card {
+    margin-bottom: 1rem;
+    width: 15rem;
+    align-items: center;
+}
+
+.card img {
+    width: 14.8rem;
+    height: 10rem;
+}
+.card-body{
+    width: 100%;
+}
+
+/*모달창*/
+
+#modal {
+    display: none;
+}
+
+#modalBg {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.8);
+}
+
+#modalCard {
+    position: fixed;
+    top: 15%;
+    left: 15%;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    width: 70%;
+    height: 70%;
+    padding: 2rem;
+
+}
+
+#modalbox1 {
+    display: flex;
+    flex: 3;
+}
+
+#modalbox2 {
+    flex: 1;
+    padding: 2rem 2rem 0 2rem;
+}
+
+#modalimgbox {
+    flex: 3;
+    text-align: center;
+    align-self: center;
+}
+
+#modalimgbox > img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    max-height: 20rem;
+}
+
+#modalinpomation {
+    flex: 1;
+    padding: 2rem 0 2rem 2rem;
+    align-self: center;
+}
+
+review {
+    display: block;
+}
+
+#modalimg {
+    width: 80%;
+    justify-content: center;
+}
+
+#modalinpomation {
+    width: 200px;
+}
+
+.modalBtn {
+    position: fixed;
+    bottom: 5%;
+    left: 47%;
+    display: block;
+    justify-content: center;
+    align-items: center;
+
+    /*margin: 0 auto;*/
+    /*width: ;*/
+    /*height: 70%;*/
+}
+
+.modalBtn2{
+    background-color: white;
+    border-radius: 10px;
+    padding: 0.5rem 1rem;
+}
+
+.hide{
+    display: none;
+}

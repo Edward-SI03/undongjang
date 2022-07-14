@@ -1,0 +1,104 @@
+/*공통 css*/
+* {
+    font-family: 'Gowun Dodum', sans-serif;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    min-height: 100vh;
+    padding-bottom: 2rem;
+    background: -webkit-gradient(linear, left bottom, right top, from(#92b5db), to(#1d466c));
+    background: -webkit-linear-gradient(bottom left, #92b5db 0%, #1d466c 100%);
+    background: -moz-linear-gradient(bottom left, #92b5db 0%, #1d466c 100%);
+    background: -o-linear-gradient(bottom left, #92b5db 0%, #1d466c 100%);
+    background: linear-gradient(to bottom right, #92b5db 0%, #1d466c 100%);
+
+    background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.fosterwebmarketing.com/405/beachrun.jpg');
+    background-position: center;
+    background-size: cover;
+
+}
+
+/*배너 css*/
+
+.header_title {
+    width: 100%;
+    height: 5%;
+    padding: 1.5rem 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    /*background-color: #80b5f3;*/
+    /*background: -webkit-gradient(linear, left bottom, right top, from(#92b5db), to(#1d466c));*/
+    /*background: -webkit-linear-gradient(bottom left, #92b5db 0%, #1d466c 100%);*/
+    /*background: -moz-linear-gradient(bottom left, #92b5db 0%, #1d466c 100%);*/
+    /*background: -o-linear-gradient(bottom left, #92b5db 0%, #1d466c 100%);*/
+    /*background: linear-gradient(to top right, #92b5db 0%, #1d466c 100%);*/
+    color: white;
+    display: flex;
+    justify-content: space-between;
+}
+
+.header_title > h1 {
+    margin-left: 2rem;
+    display: flex;
+    font-size: 3rem;
+    font-weight: 700;
+    min-width: 200px;
+}
+
+.header_title > h1 > a {
+    color: white;
+    text-decoration: none;
+}
+
+#bannerimg {
+    width: 50px;
+    color: white;
+}
+
+.login {
+    margin-right: 2rem;
+    padding: 0 1rem;
+    display: flex;
+}
+
+.login ul {
+    display: flex;
+    align-items: flex-end;
+    margin-bottom: 0;
+}
+
+.login ul li {
+    list-style: none;
+    font-size: 1.1rem;
+    margin-right: 10px;
+}
+.login ul li:first-child {
+    /*list-style: none;*/
+    /*font-size: 1.1rem;*/
+    margin-right: 3rem;
+}
+
+.login ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 1.2rem;
+}
+
+a:hover {
+    cursor: pointer;
+}
+
+.loginfalse {
+    display: block;
+}
+
+.loginture {
+    display: none;
+}
+
+#user_id{
+    font-weight: 700;
+    /*font-size: 1.5rem;*/
+}

@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="kor">
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+            crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+            crossorigin="anonymous"></script>
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Jua&display=swap" rel="stylesheet">
+
+    <script src="https://cdn.jsdelivr.net/npm/bs-custom-file-input/dist/bs-custom-file-input.js"></script>
+
+    <!-- jQuery cookie 함수-->
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+    <!-- 구글폰트 -->
+    <link href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap" rel="stylesheet">
+
+    <title>우리동네 운동장 - 글 작성</title>
+
+    <!-- 배너 css -->
+    <link rel="stylesheet" href="../static/css/banner.css">
+    <!-- 로그인체크 및 로그아웃 js -->
+    <script src="../static/js/logincheck.js" defer></script>
+    <!-- 현재 기온 js -->
+    <script src="../static/js/weather.js" defer></script>
+    <!-- css -->
+    <link href="../static/css/writing.css" rel="stylesheet">
+    <!-- 글 포스팅 -->
+    <script src="../static/js/writing.js" defer></script>
+
+    <script>
+        // 유저 아이디를 받아서 디비 저장할건데 .js에서는 진자형식이 안대서 여기서 받아서
+        // 포스팅함수로 저장 하면 가능 유저아이디 받을수 있음
+        let userid = "{{userid}}"
+
+    </script>
+
+
+</head>
+
+<body>
+<header>
+    <div class="header_title">
+        <h1>
+            <a href="/">우리들의 운동장</a>
+            <img id="bannerimg" src="../static/img/exercise.png">
+        </h1>
+
+        <div class="login">
+            <ul class="loginfalse">
+                <li>
+                    <a>현재 온도 : <span class="temp"></span>℃</a>
+                </li>
+                <li>
+                    <a href="/login">로그인</a>
+                </li>
+                <li>
+                    <a href="/signup">회원가입</a>
+                </li>
+            </ul>
+            <ul class="loginture">
+                <li>
+                    <a>현재 온도 : <span class="temp"></span>℃</a>
+                </li>
+                <li>
+                    <a id="user_id" href="/modify/{{userid}}">{{ userid }}</a>
+                </li>
+                <li>
+                    <a onclick="logout()">로그아웃</a>
+                </li>
+            </ul>
+
+        </div>
+
+    </div>
+</header>
+<div class="posting-box">
+    <label class="mr-sm-2">나만의 운동장 소개</label>
+    <input type="email" class="form-control" id="placeName" placeholder="내 운동장 이름짓기">
+
+    <label class="mr-sm-2">지역</label>
+    <select class="custom-select mr-sm-2" id="location">
+        <option value="">지역 선택</option>
+        <option value="서울">서울</option>
+        <option value="경기도">경기도</option>
+        <option value="인천">인천</option>
+        <option value="대전">대전</option>
+        <option value="대구">대구</option>
+        <option value="부산">부산</option>
+        <option value="광주">울산</option>
+        <option value="광주">광주</option>
+        <option value="강원도">강원도</option>
+        <option value="경상북도">경상도</option>
+        <option value="전라북도">전라도</option>
+        <option value="충청북도">충청도</option>
+        <option value="강원도">제주</option>
+    </select>
+
+    <label class="mr-sm-2">운동 종류</label>
+    <select class="custom-select mr-sm-2" id="workout">
+
+        <option value="">운동 선택</option>
+        <option value="헬스">헬스</option>
+        <option value="크로스핏">크로스핏</option>
+        <option value="등산">등산</option>
+        <option value="수영">수영</option>
+        <option value="싸이클">싸이클</option>
+        <option value="클라이밍">클라이밍</option>
+        <option value="기타">기타</option>
+    </select>
+
+
+    <div class="image-container">
+        <img id="preview-image"
+             src="https://dummyimage.com/500x500/ffffff/000000.png&text=preview+image">
+        <div class="custom-file">
+
+            <div class="input-group mb-3">
+                <input type="file" class="form-control" id="input-image" accept="image/*">
+            </div>
+        </div>
+    </div>
+
+
+    <label class="mr-sm-2">내 운동장 자세한 링크</label>
+    <input type="email" class="form-control" id="address" placeholder="장소 추가 정보 링크">
+
+    <label class="mr-sm-2">내 운동장 리뷰하기</label>
+    <textarea class="form-control" id="comment" rows="3" placeholder="간단한 리뷰 :)"></textarea>
+
+    <button id="postBtn" onclick="posting()" type="button" class="btn btn-primary">저장하기</button>
+
+
+</body>
+
+</html>

@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="kor">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--    JQuery-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <!-- jQuery cookie 함수-->
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <!-- 구글 폰트 -->
+    <link href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap" rel="stylesheet">
+    <title>우리동네 운동장 - 회원정보수정</title>
+
+    <!-- 배너 css -->
+    <link rel="stylesheet" href="../static/css/banner.css">
+    <!-- 현재 기온 js -->
+    <script src="../static/js/weather.js" defer></script>
+    <!-- 로그인체크 및 로그아웃 js -->
+    <script src="../static/js/logincheck.js" defer></script>
+
+    <!-- 회원정보수정 및 회원탈퇴 js -->
+    <script src="../static/js/modify.js" defer></script>
+
+    <!-- css -->
+    <link href="../static/css/modify.css" rel="stylesheet">
+    <script>
+        // 회원 탈퇴시 로그인 유저 아이디필요
+        userID = "{{ userid.idenfier }}"
+    </script>
+
+
+</head>
+
+<body>
+<header>
+    <div class="header_title">
+        <h1>
+            <a href="/">우리들의 운동장</a>
+            <img id="bannerimg" src="../static/img/exercise.png">
+        </h1>
+
+        <div class="login">
+            <ul class="loginfalse">
+                <li>
+                    <a>현재 온도 : <span class="temp"></span>℃</a>
+                </li>
+                <li>
+                    <a href="/login">로그인</a>
+                </li>
+                <li>
+                    <a href="/signup">회원가입</a>
+                </li>
+            </ul>
+            <ul class="loginture">
+                <li>
+                    <a>현재 온도 : <span class="temp"></span>℃</a>
+                </li>
+                <li>
+                    <a href="/modify/{{userid}}">{{ userid.idenfier }}</a>
+                </li>
+                <li>
+                    <a onclick="logout()">로그아웃</a>
+                </li>
+            </ul>
+
+        </div>
+
+    </div>
+</header>
+<div class="container">
+    <div class="input-form-backgroud row">
+        <div class="input-form col-md-12 mx-auto">
+            <h4 class="mb-3">회원정보수정</h4>
+            <form class="validation-form" novalidate>
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label for="name">이름</label>
+                        <input type="text" class="form-control" id="name" placeholder="" value="{{ userid.name }}" required>
+                        <div class="invalid-feedback">
+                            이름을 입력해주세요.
+                        </div>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label for="nickname">별명</label>
+                        <input type="text" class="form-control" id="nickname" placeholder="" value="{{ userid.nick }}" required>
+                        <div class="invalid-feedback">
+                            별명을 입력해주세요.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <label for="idenfier">아이디</label>
+                    <input type="idenfier" class="form-control" id="idenfier" placeholder="" value="{{ userid.idenfier }}" disabled>
+                    <div class="invalid-feedback">
+                        아이디를 입력해주세요.
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <label for="password">비밀번호</label>
+                    <input type="password" class="form-control" id="password" placeholder="" value="" disabled>
+                    <div class="invalid-feedback">
+                        비밀번호를 입력해주세요.
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <label for="email">이메일</label>
+                    <input type="email" class="form-control" id="email" placeholder="" value="{{ userid.email }}" required>
+                    <div class="invalid-feedback">
+                        이메일을 입력해주세요.
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <label for="address">전화번호</label>
+                    <input type="text" class="form-control" id="number" placeholder="" value="{{ userid.number }}"required>
+                    <div class="invalid-feedback">
+                        전화번호를 입력해주세요.
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <label for="address">주소<span class="text-muted">&nbsp;(필수 아님)</span></label>
+                    <input type="text" class="form-control" id="address" placeholder="" value="{{ userid.address }}">
+                </div>
+
+
+                <hr class="mb-4">
+                <div class="mb-2"></div>
+                <button class="btn btn-primary btn-lg btn-block" type="submit" onclick="update_order()">회원정보수정</button>
+                <button class="btn btn-danger btn-lg btn-block" type="submit" onclick="user_delete()">회원탈퇴</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+</body>
+
+
+</html>
